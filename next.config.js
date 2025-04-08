@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // output: 'export', // ❌ Remove or comment this line
 
   eslint: {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+
   webpack: (config) => {
     config.cache = false;
     config.optimization = {
@@ -24,9 +24,10 @@ const nextConfig = {
     };
     return config;
   },
+
   experimental: {
     optimizeCss: false,
-    optimizePackageImports: false,
+    optimizePackageImports: ["lucide-react"], // ✅ Must be an array or just remove it entirely
   },
 };
 
